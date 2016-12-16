@@ -7,8 +7,8 @@ describe(Store) do
 
   it { should validate_uniqueness_of(:name)}
 
-#   # it('capitalizes all words of a store name') do
-#   #   test_store = Store.create({:name => 'birkenstock store'})
-#   #   expect(test_store.name()).to(eq('Birkenstock Store'))
-#   # end
+  it('capitalizes all words of a store name') do
+    test_store = Store.create({:name => 'birkenstock store'})
+    expect(test_store.name()).to(eq('Birkenstock Store'))
+  end
 end
