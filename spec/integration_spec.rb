@@ -16,4 +16,17 @@ describe('the add shoe store route', {:type => :feature}) do
     click_button('Add Shoe Store')
     expect(page).to have_content('Fancy Shoes')
   end
+  it('will update name of store') do
+    test_store = Store.create(:name => "Fashion Forward")
+    visit("/stores/#{test_store.id}")
+    fill_in('new_store', :with => "Fashion Backward")
+    click_button("Update Name")
+    expect(page).to have_content("Fashion Backward")
+  end
+  it('will delete store') do
+    test_store = Store.create(:name => "Sandals All Year")
+    visit("/stores/#{test_store.id}")
+    click_button("Delete Store")
+    expect(page).to_not have_content("Sandals All Year")
+  end
 end
