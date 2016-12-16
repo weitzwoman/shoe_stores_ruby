@@ -53,3 +53,14 @@ delete('/stores/:id') do
   @store.destroy()
   redirect('/')
 end
+
+post('/stores/:id') do
+  @store = Store.find(params['id'].to_i())
+  brand_ids = params['brand_ids']
+  brand_ids.each() do |brand_id|
+    brand = Brand.find(brand_id)
+    @store.brands.push(brand)
+  end
+  @brands = Brand.all()
+  erb(:store)
+end
