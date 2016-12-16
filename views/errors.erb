@@ -1,20 +1,26 @@
 <div class='jumbotron'>
   <h1>Shoe Stores <br> Supplies Sold</h1>
 </div>
-<h3>Oops, there were some errors: </h3>
-<% if @brand %>
-  <ul>
-    <% @brand.errors().full_messages().each() do |message| %>
-    <li><%= message %></li>
+<div class="panel panel-danger">
+  <div class="panel-heading">
+    <h3 class="panel-title">Oops, there were some errors: </h3>
+  </div>
+  <div class="panel-body">
+    <% if @brand %>
+      <ul>
+        <% @brand.errors().full_messages().each() do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
-<% if @store %>
-  <ul>
-    <% @store.errors().full_messages().each() do |message| %>
-    <li><%= message %></li>
+    <% if @store %>
+      <ul>
+        <% @store.errors().full_messages().each() do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
     <% end %>
-  </ul>
-<% end %>
+  </div>
+</div>
 
 <a href="/">Return to Homepage</a>
