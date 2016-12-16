@@ -41,3 +41,15 @@ get('/stores/:id') do
   @store = Store.find(params['id'].to_i())
   erb(:store)
 end
+
+patch('/stores/:id') do
+  @store = Store.find(params['id'].to_i())
+  @store.update({:name => params['new_store']})
+  redirect('/stores/'.concat(@store.id().to_s()))
+end
+
+delete('/stores/:id') do
+  @store = Store.find(params['id'].to_i())
+  @store.destroy()
+  redirect('/')
+end
