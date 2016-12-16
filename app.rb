@@ -64,3 +64,14 @@ post('/stores/:id') do
   @brands = Brand.all()
   erb(:store)
 end
+
+post('/brands/:id') do
+  @brand = Brand.find(params['id'].to_i())
+  store_ids = params['store_ids']
+  store_ids.each() do |store_id|
+    store = Store.find(store_id)
+    @brand.stores.push(store)
+  end
+  @stores = Store.all()
+  erb(:brand)
+end
