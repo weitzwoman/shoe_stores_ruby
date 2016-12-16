@@ -75,3 +75,15 @@ post('/brands/:id') do
   @stores = Store.all()
   erb(:brand)
 end
+
+patch('/brands/:id') do
+  @brand = Brand.find(params['id'].to_i())
+  @brand.update({:name => params['new_brand']})
+  redirect('/brands/'.concat(@brand.id().to_s()))
+end
+
+delete('/brands/:id') do
+  @brand = Brand.find(params['id'].to_i())
+  @brand.destroy()
+  redirect('/')
+end

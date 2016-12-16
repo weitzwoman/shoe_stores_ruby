@@ -21,6 +21,22 @@
       <button type="submit" class="btn btn-warning">Add Shoe Store</button>
     </form>
   </div>
+
+  <div class="col-md-6">
+    <form action="/brands/<%= @brand.id() %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+      <div class="form-group">
+        <input class="form-control" id="new_brand" name="new_brand" placeholder="Update Brand Name">
+      </div>
+      <button type="submit" class="btn btn-success">Update Name</button>
+    </form>
+    <br>
+    <br>
+    <form action="/brands/<%= @brand.id() %>" method="post">
+      <input type="hidden" name="_method" value="delete">
+      <button type="submit" class="btn btn-danger">Delete Brand</button>
+    </form>
+  </div>
 </div>
 <br>
 <a href='/'>Return to Homepage</a>
