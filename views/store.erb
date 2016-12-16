@@ -14,7 +14,6 @@
           <li><a href="/brands/<%= brand.id() %>"><%= brand.name() %></a></li>
           <% end %>
         </ul>
-
         <form action="/stores/<%= @store.id() %>" method="post">
           <h4>Add Brands to this Store:</h4>
           <% @brands.each() do |brand| %>
@@ -28,8 +27,8 @@
           <% end %>
           <button type="submit" class="btn btn-warning">Add Brand</button>
         </form>
+        <br>
       </div>
-
       <div class="col-md-6">
         <form action="/stores/<%= @store.id() %>" method="post">
           <input type="hidden" name="_method" value="patch">

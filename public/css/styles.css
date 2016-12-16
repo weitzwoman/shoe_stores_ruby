@@ -7,4 +7,25 @@
 
 .jumbotron h1 {
   color: tomato;
+  font-family: 'Oswald', sans-serif;
+}
+
+h3 {
+  font-family: 'Oswald', sans-serif;
+}
+
+h4 {
+  font-family: 'Oswald', sans-serif;
+}
+
+button {
+  font-family: 'Roboto', sans-serif;
+}
+
+placeholder {
+  font-family: 'Roboto', sans-serif;
+}
+
+link {
+  font-family: 'Roboto', sans-serif;
 }
