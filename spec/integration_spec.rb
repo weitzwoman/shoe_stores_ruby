@@ -15,6 +15,19 @@ describe('the add brand route', {:type => :feature}) do
     click_button("Add Shoe Store")
     expect(page).to have_content("Feet Plus")
   end
+  it('will update name of brand') do
+    test_brand = Brand.create(:name => "Corso Como")
+    visit("/brands/#{test_brand.id}")
+    fill_in('new_brand', :with => "Italians Do It Better")
+    click_button("Update Name")
+    expect(page).to have_content("Italians Do It Better")
+  end
+  it('will delete brand') do
+    test_brand = Brand.create(:name => "Mizuno")
+    visit("/brands/#{test_brand.id}")
+    click_button("Delete Brand")
+    expect(page).to_not have_content("Mizuno")
+  end
 end
 
 describe('the add shoe store route', {:type => :feature}) do
