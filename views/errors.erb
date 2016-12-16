@@ -1,0 +1,10 @@
+<h3>Oops, there were some errors: </h3>
+<% if @brand %>
+  <ul>
+    <% @brand.errors().full_messages().each() do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<a href="/">Return to Homepage</a>
