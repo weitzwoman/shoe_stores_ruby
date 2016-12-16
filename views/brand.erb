@@ -7,13 +7,15 @@
   </div>
   <div class="panel-body">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-md-4">
         <h4>Shoe Stores selling this Brand:</h4>
         <ul>
           <% @brand.stores.each() do |store| %>
           <li><a href="/stores/<%= store.id() %>"><%= store.name() %></a></li>
           <% end %>
         </ul>
+      </div>
+      <div class="col-md-4">
         <form action="/brands/<%= @brand.id() %>" method="post">
           <h4>Add Shoe Stores selling this Brand:</h4>
           <% @stores.each() do |store| %>
@@ -29,7 +31,8 @@
         </form>
         <br>
       </div>
-      <div class="col-md-6">
+      <div class="col-md-4">
+        <h4>Edit Brand Information:</h4>
         <form action="/brands/<%= @brand.id() %>" method="post">
           <input type="hidden" name="_method" value="patch">
           <div class="form-group">
