@@ -1,42 +1,49 @@
-<h3><%= @brand.name() %></h3>
-<div class="row">
-  <div class="col-md-6">
-    <h4>Shoe Stores selling this Brand:</h4>
-    <ul>
-      <% @brand.stores.each() do |store| %>
-      <li><a href="/stores/<%= store.id() %>"><%= store.name() %></a></li>
-      <% end %>
-    </ul>
-    <form action="/brands/<%= @brand.id() %>" method="post">
-      <h4>Add Shoe Stores selling this Brand:</h4>
-      <% @stores.each() do |store| %>
-        <% unless store.brand_ids.include?(@brand.id()) %>
-          <div class="checkbox">
-            <label>
-              <input type="checkbox" name="store_ids[]" value="<%= store.id() %>"><%= store.name() %>
-            </label>
-          </div>
-        <% end %>
-      <% end %>
-      <button type="submit" class="btn btn-warning">Add Shoe Store</button>
-    </form>
+<div class="panel panel-warning">
+  <div class="panel-heading">
+    <h3 class="panel-title"><%= @brand.name() %></h3>
   </div>
-
-  <div class="col-md-6">
-    <form action="/brands/<%= @brand.id() %>" method="post">
-      <input type="hidden" name="_method" value="patch">
-      <div class="form-group">
-        <input class="form-control" id="new_brand" name="new_brand" placeholder="Update Brand Name">
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-md-6">
+        <h4>Shoe Stores selling this Brand:</h4>
+        <ul>
+          <% @brand.stores.each() do |store| %>
+          <li><a href="/stores/<%= store.id() %>"><%= store.name() %></a></li>
+          <% end %>
+        </ul>
+        <form action="/brands/<%= @brand.id() %>" method="post">
+          <h4>Add Shoe Stores selling this Brand:</h4>
+          <% @stores.each() do |store| %>
+            <% unless store.brand_ids.include?(@brand.id()) %>
+              <div class="checkbox">
+                <label>
+                  <input type="checkbox" name="store_ids[]" value="<%= store.id() %>"><%= store.name() %>
+                </label>
+              </div>
+            <% end %>
+          <% end %>
+          <button type="submit" class="btn btn-warning">Add Shoe Store</button>
+        </form>
       </div>
-      <button type="submit" class="btn btn-success">Update Name</button>
-    </form>
-    <br>
-    <br>
-    <form action="/brands/<%= @brand.id() %>" method="post">
-      <input type="hidden" name="_method" value="delete">
-      <button type="submit" class="btn btn-danger">Delete Brand</button>
-    </form>
+
+      <div class="col-md-6">
+        <form action="/brands/<%= @brand.id() %>" method="post">
+          <input type="hidden" name="_method" value="patch">
+          <div class="form-group">
+            <input class="form-control" id="new_brand" name="new_brand" placeholder="Update Brand Name">
+          </div>
+          <button type="submit" class="btn btn-info">Update Name</button>
+        </form>
+        <br>
+        <br>
+        <form action="/brands/<%= @brand.id() %>" method="post">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit" class="btn btn-danger">Delete Brand</button>
+        </form>
+      </div>
+    </div>
   </div>
 </div>
+
 <br>
 <a href='/'>Return to Homepage</a>

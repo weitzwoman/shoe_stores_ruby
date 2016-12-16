@@ -14,9 +14,9 @@
 * Input: Frye
 * Output: Show link for Frye brand page
 
-#### 3. Visit Shoe Store Page, edit name, add Brands, and delete Shoe Store, view Brands listed
+#### 3. Visit Shoe Store Page, add Brands sold at Shoe Store, view Brands sold at Store in a list, edit name, and delete Shoe Store
 
-#### 4. Visit Brand Page, view Shoe Stores were Brand is sold.
+#### 4. Visit Brand Page, add Stores selling Brand, view Shoe Stores were Brand is sold in a list, edit name, and delete Brand
 
 ## Database Schema
 

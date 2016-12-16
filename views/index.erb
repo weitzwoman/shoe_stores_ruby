@@ -7,6 +7,12 @@
       </div>
       <button type="submit" class="btn btn-warning">Add Brand</button>
     </form>
+    <h3>These are all Brands logged:</h3>
+    <ul>
+      <% @brands.each() do |brand| %>
+      <li><a href='/brands/<%= brand.id() %>'><%= brand.name() %></a></li>
+      <% end %>
+    </ul>
   </div>
   <div class="col-md-6">
     <form action="/stores" method="post">
@@ -16,18 +22,6 @@
       </div>
       <button type="submit" class="btn btn-warning">Add Shoe Store</button>
     </form>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-6">
-    <h3>These are all Brands logged:</h3>
-    <ul>
-      <% @brands.each() do |brand| %>
-      <li><a href='/brands/<%= brand.id() %>'><%= brand.name() %></a></li>
-      <% end %>
-    </ul>
-  </div>
-  <div class="col-md-6">
     <h3>These are all Shoe Stores logged:</h3>
     <ul>
       <% @stores.each() do |store| %>
